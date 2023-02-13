@@ -36,13 +36,13 @@ def print_components_sizes(distance, points):
         if visited[i]:
             continue
         
-        component = []
+        component = 0
         stack = [i]
         visited[i] = True
         
         while stack:
             p = stack.pop()
-            component.append(p)
+            component += 1
             
             for j in range(len(points)):
                 if visited[j]:
@@ -51,7 +51,7 @@ def print_components_sizes(distance, points):
                     stack.append(j)
                     visited[j] = True
         
-        components.append(len(component))
+        components.append(component)
     
     print(sorted(components, reverse=True))
 
